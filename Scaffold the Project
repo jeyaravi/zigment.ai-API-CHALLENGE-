@@ -8,3 +8,11 @@ cd notification-preferences-api
 npm install mongoose @nestjs/mongoose class-validator class-transformer
 npm install @nestjs/swagger swagger-ui-express
 npm install --save-dev jest @nestjs/testing
+
+Setup MongoDB
+
+Use a local instance or a cloud-based service like MongoDB Atlas.
+Define the connection in app.module.ts using MongooseModule.forRoot().
+Serverless Deployment Configuration
+
+Add Vercel or AWS Lambda configuration files.
