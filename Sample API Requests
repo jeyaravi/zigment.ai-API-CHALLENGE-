@@ -1,0 +1,37 @@
+Create User Preferences
+
+POST /api/preferences
+Content-Type: application/json
+
+{
+  "userId": "user123",
+  "email": "user@example.com",
+  "preferences": {
+    "marketing": true,
+    "newsletter": false,
+    "updates": true,
+    "frequency": "weekly",
+    "channels": {
+      "email": true,
+      "sms": false,
+      "push": true
+    }
+  },
+  "timezone": "America/New_York"
+}
+
+Send Notification
+
+POST /api/notifications/send
+Content-Type: application/json
+
+{
+  "userId": "user123",
+  "type": "marketing",
+  "channel": "email",
+  "content": {
+    "subject": "Special Offer",
+    "body": "Check out our latest deals!"
+  }
+}
+
