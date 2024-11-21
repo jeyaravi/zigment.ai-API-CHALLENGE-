@@ -158,7 +158,7 @@ Integrated monitoring to track API performance.
 📘 Getting Started
 Clone the Repository
 
-git clone https://github.com/your-username/notification-preferences-api.git
+git clone https://docs.notificationapi.com/components/user-preferences
 cd notification-preferences-api
 Install Dependencies
 
