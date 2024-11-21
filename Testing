@@ -1,0 +1,55 @@
+1. Unit Tests
+Create tests for each service method using mocks.
+
+import { Test, TestingModule } from '@nestjs/testing';
+import { UserPreferencesService } from './user-preferences.service';
+
+describe('UserPreferencesService', () => {
+  let service: UserPreferencesService;
+
+  beforeEach(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      providers: [UserPreferencesService],
+    }).compile();
+
+    service = module.get<UserPreferencesService>(UserPreferencesService);
+  });
+
+  it('should be defined', () => {
+    expect(service).toBeDefined();
+  });
+
+  it('should create a user preference', async () => {
+    const mockData = { userId: 'test', email: 'test@example.com', preferences: {} };
+    jest.spyOn(service, 'create').mockResolvedValue(mockData as any);
+    expect(await service.create(mockData as any)).toEqual(mockData);
+  });
+});
+
+2.Deployment
+
+AWS Lambda
+
+A. Install the serverless framework:
+
+npm install -g serverless
+
+B.Create a serverless.yml:
+
+service: notification-preferences-api
+provider:
+  name: aws
+  runtime: nodejs18.x
+functions:
+  app:
+    handler: dist/main.handler
+    events:
+      - http:
+          path: api/{proxy+}
+          method: ANY
+
+C.Deploy:
+
+sls deploy
+
+
