@@ -168,8 +168,8 @@ Run Locally
 npm run start:dev
 Access the API
 
-API: http://localhost:3000](https://docs.notificationapi.com/features/logs
-Swagger Docs: http://localhost:3000/api/docs](https://docs.notificationapi.com/features/scheduling
+API: https://docs.notificationapi.com/features/logs
+Swagger Docs: https://docs.notificationapi.com/features/scheduling
 
 🎯 Why This Project?
 This project demonstrates clean architecture, scalable design, and real-world problem-solving skills. 
