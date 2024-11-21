@@ -1,7 +1,7 @@
 1.UserPreference Schema
 
 typescript
-Copy code
+
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
@@ -40,7 +40,7 @@ export const UserPreferenceSchema = SchemaFactory.createForClass(UserPreference)
 2. NotificationLog Schema
 
 typescript
-Copy code
+
 @Schema({ timestamps: true })
 export class NotificationLog extends Document {
   @Prop({ required: true })
