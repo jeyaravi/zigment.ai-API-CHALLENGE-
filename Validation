@@ -1,0 +1,28 @@
+Use class-validator to ensure inputs meet requirements:
+
+
+import { IsEmail, IsEnum, IsNotEmpty, ValidateNested } from 'class-validator';
+
+export class CreateUserPreferenceDto {
+  @IsNotEmpty()
+  userId: string;
+
+  @IsEmail()
+  email: string;
+
+  @ValidateNested()
+  preferences: {
+    marketing: boolean;
+    newsletter: boolean;
+    updates: boolean;
+    frequency: 'daily' | 'weekly' | 'monthly' | 'never';
+    channels: {
+      email: boolean;
+      sms: boolean;
+      push: boolean;
+    };
+  };
+
+  @IsNotEmpty()
+  timezone: string;
+}
