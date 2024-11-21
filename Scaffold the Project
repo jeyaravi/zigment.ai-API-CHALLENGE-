@@ -1,0 +1,10 @@
+1.Initialize Nest.js Project
+
+npx @nestjs/cli new notification-preferences-api
+cd notification-preferences-api
+
+2.Install Dependencies
+
+npm install mongoose @nestjs/mongoose class-validator class-transformer
+npm install @nestjs/swagger swagger-ui-express
+npm install --save-dev jest @nestjs/testing
