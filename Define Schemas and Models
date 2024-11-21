@@ -1,0 +1,68 @@
+1.UserPreference Schema
+
+typescript
+Copy code
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
+
+@Schema({ timestamps: true })
+export class UserPreference extends Document {
+  @Prop({ required: true })
+  userId: string;
+
+  @Prop({ required: true, unique: true })
+  email: string;
+
+  @Prop({
+    type: Object,
+    required: true,
+    default: {
+      marketing: false,
+      newsletter: false,
+      updates: false,
+      frequency: 'never',
+      channels: {
+        email: true,
+        sms: false,
+        push: false,
+      },
+    },
+  })
+  preferences: Record<string, any>;
+
+  @Prop({ required: true })
+  timezone: string;
+}
+
+export const UserPreferenceSchema = SchemaFactory.createForClass(UserPreference);
+
+
+2. NotificationLog Schema
+
+typescript
+Copy code
+@Schema({ timestamps: true })
+export class NotificationLog extends Document {
+  @Prop({ required: true })
+  userId: string;
+
+  @Prop({ required: true })
+  type: 'marketing' | 'newsletter' | 'updates';
+
+  @Prop({ required: true })
+  channel: 'email' | 'sms' | 'push';
+
+  @Prop({ required: true })
+  status: 'pending' | 'sent' | 'failed';
+
+  @Prop()
+  sentAt?: Date;
+
+  @Prop()
+  failureReason?: string;
+
+  @Prop({ type: Object, default: {} })
+  metadata: Record<string, any>;
+}
+
+export const NotificationLogSchema = SchemaFactory.createForClass(NotificationLog);
